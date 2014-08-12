@@ -1,10 +1,12 @@
 ﻿namespace RobotOptimization
 {
-    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    public class Program
+    [TestClass]
+    public class Tests
     {
-        public static void Main()
+        [TestMethod]
+        public void Optimize()
         {
             var route = new Route();
 
@@ -16,11 +18,9 @@
 
             route.Run();
 
-            route.ClosestPair();
+            route.Optimize();
 
             route.Run();
-
-            Console.ReadKey();
         }
     }
 }

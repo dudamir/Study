@@ -23,7 +23,7 @@
             _last = adding;
         }
 
-        public void Optmize()
+        public void Optimize()
         {
             _routeLength = 0;
             int length = _points.Count;

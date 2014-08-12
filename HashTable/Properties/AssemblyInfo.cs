@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RobotOptimization")]
+[assembly: AssemblyTitle("HashTable")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RobotOptimization")]
+[assembly: AssemblyProduct("HashTable")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7f32a748-854d-4bfa-8e8e-1400b7fd1cf9")]
+[assembly: Guid("bbaea01a-bb63-4a8c-b91d-4005fe576e36")]
 
 // Version information for an assembly consists of the following four values:
 //

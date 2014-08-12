@@ -1,15 +1,14 @@
 ﻿namespace String
 {
     using System;
-    using System.Collections.Generic;
 
     class Program
     {
         static void Main()
         {
-            string str = "abcd";
+            string str = "qwertyuiopããsdfghjklzxcvbnm~!@1234567890";
 
-            bool result =  StringAlg.HasOnlyUniqueNoStructure(str);
+            bool result = StringAlg.HasOnlyUnique(str);
 
             Console.WriteLine("{0} has only unique chars: {1}", str, result);
             Console.ReadKey();
@@ -20,16 +19,16 @@
     {
         public static bool HasOnlyUnique(string str)
         {
-            var chars = new Dictionary<char, int>();
+            var has = new bool[256];
 
             for (int i = 0; i < str.Length; i++)
             {
-                char c = str[i];
+                int cs = str[i];
                 
-                if (chars.ContainsKey(c))
+                if (has[cs])
                     return false;
 
-                chars.Add(c, 1);
+                has[cs] = true;;
             }
 
             return true;
