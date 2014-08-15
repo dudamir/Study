@@ -52,11 +52,6 @@ namespace Strings
             return new string(reversed);
         }
 
-        public static bool AreAnagram(string str, string ana)
-        {
-            return false;
-        }
-
         public static string RemoveDuplicate(string str)
         {
             var has = new bool[256];
@@ -74,6 +69,26 @@ namespace Strings
             }
 
             return newstr;
+        }
+
+        public static int PatternMatch(string str, string pattern)
+        {
+            for (int i = 0; i <= str.Length - pattern.Length; i++)
+            {
+                var j = 0;
+
+                while (j < pattern.Length && str[i + j] == pattern[j])
+                {
+                    j++;
+
+                    if (j == pattern.Length)
+                    {
+                        return i;
+                    }
+                }
+            }
+
+            return -1;
         }
     }
 }

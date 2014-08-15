@@ -37,15 +37,6 @@
         }
 
         [TestMethod]
-        public void Anagram()
-        {
-            const string str = "amo";
-            const string ana = "moa";
-
-            Assert.IsTrue(StringAlgorithms.AreAnagram(str, ana));
-        }
-
-        [TestMethod]
         public void RemoveDuplicate()
         {
             const string str = "mmmm";

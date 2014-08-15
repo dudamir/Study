@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTable", "HashTable\HashTable.csproj", "{6A79EA0B-DF24-4744-A621-BC7DBCB80466}"
 EndProject
@@ -12,6 +12,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays", "Arrays\Arrays.csproj", "{2E65B61E-8127-4295-8EF6-8F95D1D3CF23}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedLists", "LinkedLists\LinkedLists.csproj", "{C168B253-6ACF-48D8-8773-4977B3E9DA99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.csproj", "{1976F058-9E39-40D6-BD0E-C781C888E6CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix", "Matrix\Matrix.csproj", "{6D954B27-714D-43A4-BABB-C4AA565D92E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searching", "Searching\Searching.csproj", "{3AECDD4A-A3DD-4D92-829B-12BF52E100CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{C168B253-6ACF-48D8-8773-4977B3E9DA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C168B253-6ACF-48D8-8773-4977B3E9DA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C168B253-6ACF-48D8-8773-4977B3E9DA99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1976F058-9E39-40D6-BD0E-C781C888E6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1976F058-9E39-40D6-BD0E-C781C888E6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1976F058-9E39-40D6-BD0E-C781C888E6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1976F058-9E39-40D6-BD0E-C781C888E6CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D954B27-714D-43A4-BABB-C4AA565D92E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D954B27-714D-43A4-BABB-C4AA565D92E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D954B27-714D-43A4-BABB-C4AA565D92E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D954B27-714D-43A4-BABB-C4AA565D92E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AECDD4A-A3DD-4D92-829B-12BF52E100CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AECDD4A-A3DD-4D92-829B-12BF52E100CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AECDD4A-A3DD-4D92-829B-12BF52E100CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AECDD4A-A3DD-4D92-829B-12BF52E100CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
