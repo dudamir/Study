@@ -50,11 +50,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DList.cs" />
-    <Compile Include="DListTests.cs" />
+    <Compile Include="DeleteTests.cs" />
+    <Compile Include="FindTests.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="LinkedList.cs" />
+    <Compile Include="LinkedListTests.cs" />
     <Compile Include="ListNode.cs" />
-    <Compile Include="Run.cs" />
+    <Compile Include="NodeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Choose>

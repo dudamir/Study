@@ -2,56 +2,71 @@
 {
     public class LinkedList
     {
-        private ListNode _head;
+        public int Size { get; private set; }
 
-        public LinkedList(ListNode head)
-        {
-            _head = head;
-        }
+        public ListNode Head { get; private set; }
 
         public void Insert(int value)
         {
-            if (_head == null)
-            {
-                _head = NewNode(value);
-            }
-            else
-            {
-                var current = _head;
+            var current = NewNode(value);
 
-                while (current.Next != null)
-                {
-                    current = current.Next;
-                }
-
-                current.Next = NewNode(value);
-            }
-        }
-
-        public void Remove(int value)
-        {
-            if (_head.Value == value)
+            if (Head != null)
             {
-                _head = _head.Next;
+                current.Next = Head;
             }
-            else
-            {
-                var current = _head;
 
-                while (current.Next != null)
-                {
-                    if (current.Next.Value == value)
-                    {
-                        current.Next = current.Next.Next;
-                        break;
-                    }
-                }
-            }
+            Head = current;
+            Size++;
         }
 
         private static ListNode NewNode(int value)
         {
             return new ListNode {Value = value};
+        }
+
+        public ListNode Find(int value)
+        {
+            return Find(Head, value);
+        }
+
+        private ListNode Find(ListNode node, int value)
+        {
+            if (node == null || node.Value == value)
+            {
+                return node;
+            }
+
+            return Find(node.Next, value);
+        }
+
+        public void Delete(int value)
+        {
+            if (Head.Value == value)
+            {
+                Head = Head.Next;
+                Size--;
+            }
+
+            Delete(Head, value);
+        }
+
+        private void Delete(ListNode previous, int value)
+        {
+            var current = previous.Next;
+
+            if (current == null)
+            {
+                return;
+            }
+            
+            if (current.Value == value)
+            {
+                previous.Next = current.Next;
+                Size--;
+                return;
+            }
+
+            Delete(current, value);
         }
     }
 }
