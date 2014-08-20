@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C168B253-6ACF-48D8-8773-4977B3E9DA99}</ProjectGuid>
+    <ProjectGuid>{D17C01B4-87EB-4BBD-B188-59B912E365BE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LinkedLists</RootNamespace>
-    <AssemblyName>LinkedLists</AssemblyName>
+    <RootNamespace>DictionariesTests</RootNamespace>
+    <AssemblyName>DictionariesTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -51,11 +51,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DeleteTests.cs" />
-    <Compile Include="FindTests.cs" />
-    <Compile Include="Helper.cs" />
-    <Compile Include="LinkedListTests.cs" />
-    <Compile Include="NodeTests.cs" />
+    <Compile Include="InsertTests.cs" />
+    <Compile Include="MaxTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeachTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Structures\Structures.csproj">

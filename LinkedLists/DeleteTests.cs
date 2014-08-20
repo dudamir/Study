@@ -12,7 +12,7 @@
 
             list.Delete(20);
 
-            Assert.AreEqual(10, list.Size);
+            Assert.AreEqual(10, list.Length());
         }
 
         [TestMethod]
@@ -22,7 +22,7 @@
 
             list.Delete(7);
 
-            Assert.AreEqual(9, list.Size);
+            Assert.AreEqual(9, list.Length());
         }
 
         [TestMethod]
@@ -32,7 +32,7 @@
 
             list.Delete(1);
 
-            Assert.AreEqual(9, list.Size);
+            Assert.AreEqual(9, list.Length());
 
         }
 
@@ -43,7 +43,18 @@
 
             list.Delete(10);
 
-            Assert.AreEqual(9, list.Size);
+            Assert.AreEqual(9, list.Length());
+
+        }
+
+        [TestMethod]
+        public void DeleteUniqueItem()
+        {
+            var list = Helper.GetList(1);
+
+            list.Delete(1);
+
+            Assert.AreEqual(0, list.Length());
 
         }
     }

@@ -1,10 +1,12 @@
 ﻿namespace LinkedLists
 {
+    using Structures;
+
     public static class Helper
     {
-        internal static LinkedList GetList(int numberOfNodes)
+        internal static LinkedList<int> GetList(int numberOfNodes)
         {
-            var list = new LinkedList();
+            var list = new LinkedList<int>();
 
             for (int i = 1; i <= numberOfNodes; i++)
             {
