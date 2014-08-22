@@ -1,7 +1,31 @@
 namespace Strings
 {
+    using System;
+
     static internal class StringAlgorithms
     {
+        public static bool IsAnagram(string first, string second)
+        {
+            if (first.Length != second.Length)
+                return false;
+
+            var chars = new int[256];
+
+            for (int i = 0; i < first.Length; i++)
+            {
+                chars[first[i]] += 1;
+                chars[second[i]] -= 1;
+            }
+
+            for (int i = 0; i < 256; i++)
+            {
+                if (chars[i] != 0)
+                    return false;
+            }
+
+            return true;
+        }
+
         public static bool HasDupChar(string str)
         {
             var has = new bool[256];
