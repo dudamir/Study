@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryTree.cs" />
     <Compile Include="Dictionary.cs" />
     <Compile Include="DictionaryItem.cs" />
     <Compile Include="LinkedList.cs" />

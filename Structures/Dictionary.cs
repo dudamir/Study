@@ -44,31 +44,6 @@
         {
             int max = 0;
 
-            Iterate(max, GetMax);
-
-            return max;
-        }
-
-        private T Iterate<T>(int max, Action<int, ListNode<DictionaryItem>> action)
-        {
-            var current = _list.Head();
-
-            while (current != null)
-            {
-                action(max, current);
-
-                current = current.Next;
-            }
-        }
-
-        private static int GetMax(int max, ListNode<DictionaryItem> current)
-        {
-            var currentKey = current.Value.Key;
-
-            if (currentKey > max)
-            {
-                max = currentKey;
-            }
             return max;
         }
 
