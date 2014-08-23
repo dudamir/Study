@@ -1,10 +1,113 @@
 ﻿namespace Matrix
 {
+    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class MatrixTests
     {
+        [TestMethod]
+        public void Zeros()
+        {
+            var m = new int[10,8];
+
+            Fill(m);
+
+            m[0, 0] = 0;
+
+            int lines = m.GetLength(0);
+            int cols = m.GetLength(1);
+            var lToZero = new bool[lines];
+            var cToZero = new bool[cols];
+
+
+            for (int l = 0; l < lines; l++)
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    if (m[l, c] == 0)
+                    {
+                        lToZero[l] = true;
+                        cToZero[c] = true;
+                    }
+                }
+            }
+
+            for (int i = 0; i < lines; i++)
+            {
+                if (lToZero[i])
+                {
+                    for (int c = 0; c < cols; c++)
+                    {
+                        m[i, c] = 0;
+                    }
+                }
+            }
+
+            for (int i = 0; i < cols; i++)
+            {
+                if (cToZero[i])
+                {
+                    for (int l = 0; l < lines; l++)
+                    {
+                        m[l, i] = 0;
+                    }
+                }
+            }
+
+            Print(m);
+        }
+
+        [TestMethod]
+        public void Rotate90()
+        {
+            var matrix = new int[4,3];
+
+            Fill(matrix);
+
+            var lines = matrix.GetLength(0);
+            var cols = matrix.GetLength(1);
+
+            var newMatrix = new int[cols, lines];
+
+            for (int i = 0; i < lines; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    newMatrix[cols - 1 - j, i] = matrix[i, j];
+                }
+            }
+
+
+            Print(matrix);
+            Print(newMatrix);
+        }
+
+        private static void Fill(int[,] matrix)
+        {
+            int x = 1;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = x;
+                    x++;
+                }
+            }
+        }
+
+        private static void Print(int[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write("{0, 2} ", matrix[i, j]);
+                }
+                Console.WriteLine();
+            }
+        }
+
         [TestMethod]
         public void Multiplication()
         {

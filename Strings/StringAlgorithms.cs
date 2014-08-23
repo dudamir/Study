@@ -1,9 +1,33 @@
 namespace Strings
 {
-    using System;
-
     static internal class StringAlgorithms
     {
+        public static bool IsRotation(string first, string second)
+        {
+            if (first.Length != second.Length) return false;
+
+            int len = first.Length;
+
+            for (int offset = 0; offset < len; offset++)
+            {
+                int i = 0;
+                int j = offset;
+
+                while (i < len && first[i] == second[j])
+                {
+                    i++;
+                    j++;
+
+                    if (j == len) j = 0;
+                }
+
+                if (j == 0 && i == len) return false;
+                if (i == len) return true;
+            }
+
+            return false;
+        }
+
         public static bool IsAnagram(string first, string second)
         {
             if (first.Length != second.Length)
