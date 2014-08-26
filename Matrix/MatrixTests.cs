@@ -7,6 +7,75 @@
     public class MatrixTests
     {
         [TestMethod]
+        public void SubSquares()
+        {
+            var matrix = new int[10, 12];
+
+            matrix[1, 1] = 1;
+            matrix[1, 2] = 1;
+            matrix[2, 1] = 1;
+            matrix[2, 2] = 1;
+
+            int y = 0;
+            int len = Math.Min(matrix.GetLength(0), matrix.GetLength(1));
+
+            for (int line = 0; line < matrix.GetLength(0); line++)
+            {
+                for (int col = 0; col < matrix.GetLength(1); col++)
+                {
+                    while (y < len)
+                    {
+                        // line y is all 1
+                        int c;
+                        for (c = 0; c <= y; c++)
+                        {
+                            if (matrix[y, c] != 1) break;
+                        }
+
+                        if (c < (y + 1)) break;
+
+                        int l;
+                        for (l = 0; l <= y; l++)
+                        {
+                            if (matrix[l, y] != 1) break;
+                        }
+
+                        if (l < (y + 1)) break;
+
+                        y++;
+                    }
+                }
+            }
+
+            Console.WriteLine(y);
+            Print(matrix);
+        }
+
+        private void Fill(int[,] matrix, int value)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i, j] = 0;
+                }
+            }
+        }
+
+        private void FillBinary(int[,] matrix)
+        {
+            var random = new Random();
+            
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    matrix[i,j] = random.Next(0, 2);
+                }
+            }
+        }
+
+        [TestMethod]
         public void Zeros()
         {
             var m = new int[10,8];

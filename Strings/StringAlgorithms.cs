@@ -2,6 +2,23 @@ namespace Strings
 {
     static internal class StringAlgorithms
     {
+        public static bool WellFormed(string s)
+        {
+            int opened = 0;
+            
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == '(') opened++;
+                else if (s[i] == ')') opened--;
+
+                if (opened < 0) return false;
+            }
+
+            if (opened > 0) return false;
+
+            return true;
+        }
+
         public static bool IsRotation(string first, string second)
         {
             if (first.Length != second.Length) return false;

@@ -8,6 +8,30 @@
     public class StringTests
     {
         [TestMethod]
+        public void MalFormed()
+        {
+            const string s = ")";
+
+            Assert.IsFalse(StringAlgorithms.WellFormed(s));
+        }
+
+        [TestMethod]
+        public void MalFormed2()
+        {
+            const string s = "(";
+
+            Assert.IsFalse(StringAlgorithms.WellFormed(s));
+        }
+
+        [TestMethod]
+        public void WellFormed()
+        {
+            const string s = "()";
+
+            Assert.IsTrue(StringAlgorithms.WellFormed(s));
+        }
+
+        [TestMethod]
         public void Repetition()
         {
             const string str = "abc";
