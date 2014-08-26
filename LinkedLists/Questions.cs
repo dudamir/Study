@@ -1,9 +1,7 @@
 ﻿namespace LinkedLists
 {
     using System;
-    using System.Collections;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Structures;
 
     [TestClass]
     public class Questions
@@ -25,7 +23,7 @@
         [TestMethod]
         public void RemoveDuplicates()
         {
-            var linkedList = new LinkedList<int>();
+            var linkedList = new Structures.LinkedList<int>();
 
             linkedList.Insert(5);
             linkedList.Insert(5);
