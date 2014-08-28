@@ -46,6 +46,7 @@
     <Compile Include="HashSet.cs" />
     <Compile Include="LinkedList.cs" />
     <Compile Include="ListNode.cs" />
+    <Compile Include="Printer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

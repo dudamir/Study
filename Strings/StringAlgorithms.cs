@@ -155,5 +155,35 @@ namespace Strings
 
             return -1;
         }
+
+        public static string ReverseSentence(string sentence)
+        {
+            var length = sentence.Length;
+            var result = new char[length];
+
+            int k = 0;
+            for (int i = length - 1; i >= 0; i--)
+            {
+                if (sentence[i] != ' ' && i > 0) continue;
+                
+                int j = i + 1;
+
+                if (i == 0) j = 0;
+
+                while (j < length && sentence[j] != ' ')
+                {
+                    result[k] = sentence[j];
+                    k++;
+                    j++;
+                }
+
+                if (k == length) break;
+
+                result[k] = ' ';
+                k++;
+            }
+
+            return new string(result);
+        }
     }
 }

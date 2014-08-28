@@ -165,5 +165,36 @@
 
             return Swap(current, next);
         }
+
+        public ListNode<T> Middle()
+        {
+            var fast = _head;
+            ListNode<T> mid = _head;
+
+
+            while (fast != null && fast.Next != null)
+            {
+                mid = mid.Next;
+                fast = fast.Next.Next;
+            }
+
+            return mid;
+        }
+
+        public void ReverseNoRecursion()
+        {
+            var current = _head;
+            ListNode<T> previous = null;
+
+            while (current != null)
+            {
+                ListNode<T> next = current.Next;
+                current.Next = previous;
+                previous = current;
+                current = next;
+            }
+
+            _head = previous;
+        }
     }
 }
