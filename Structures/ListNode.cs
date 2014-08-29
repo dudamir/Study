@@ -25,5 +25,10 @@
         {
             Next = new ListNode<T> { Value = value, Next = Next };
         }
+
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
     }
 }
