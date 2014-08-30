@@ -85,6 +85,11 @@
         public BinaryTreeNode Left;
 
         public BinaryTreeNode Right;
+
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
     }
 
 }

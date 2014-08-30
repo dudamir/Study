@@ -11,11 +11,11 @@
         [TestMethod]
         public void ReverseSentence()
         {
-            const string Sentence = "     ";
+            const string Sentence = "   ";
 
             string result = StringAlgorithms.ReverseSentence(Sentence);
 
-            Assert.AreEqual("     ", result);
+            Assert.AreEqual("   ", result);
         }
          
     }

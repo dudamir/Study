@@ -1,51 +1,80 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Sorting
+﻿namespace Sorting
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Structures;
+    using Structures.Sorting;
+
     [TestClass]
     public class Run
     {
-        [TestMethod]
-        public void SelectionSort()
+        private static Sorter<int> GetSorter()
         {
-            var numbers = new[] { 1, 2, 6, -3, 1000, 3, 56, 76, 43 };
-            var expected = new[] { -3, 1, 2, 3, 6, 43, 56, 76, 1000 };
-
-            Sorter.SelectionSort(numbers);
-
-            CollectionAssert.AreEqual(expected, numbers);
+            return new HeapSorter<int>((i, j) => i < j);
         }
 
         [TestMethod]
-        public void InsertionSort()
+        public void SortBasic()
         {
             var numbers = new[] { 1, 2, 6, -3, 1000, 3, 56, 76, 43 };
-            var expected = new[] { -3, 1, 2, 3, 6, 43, 56, 76, 1000 };
 
-            Sorter.InsertionSort(numbers);
+            var sorter = GetSorter();
+            sorter.Sort(numbers);
 
-            CollectionAssert.AreEqual(expected, numbers);
+            AssertSort(numbers);
+
+            Printer.Print(numbers);
+        }
+
+        [TestMethod]
+        public void SortOnlyOne()
+        {
+            var numbers = new[] { -3 };
+
+            var sorter = GetSorter();
+            sorter.Sort(numbers);
+
+            AssertSort(numbers);
+
+            Printer.Print(numbers);
+        }
+
+        [TestMethod]
+        public void SortEmpty()
+        {
+            var numbers = new int[0];
+
+            var sorter = GetSorter();
+            sorter.Sort(numbers);
+
+            AssertSort(numbers);
+
+            Printer.Print(numbers);
+        }
+
+        [TestMethod]
+        public void SortSorted()
+        {
+            var numbers = new[] { 1, 2, 6};
+
+            var sorter = GetSorter();
+            sorter.Sort(numbers);
+
+            AssertSort(numbers);
+
+            Printer.Print(numbers);
+        }
+
+        private static void AssertSort(int[] sorted)   
+        {
+            for (int i = 0; i < sorted.GetLength(0) - 1; i++)
+            {
+                if (sorted[i] > sorted[i + 1]) Assert.Fail("not sorted {0} is bigger than {1}", sorted[i], sorted[i + 1]);
+            }
         }
     }
 
     public static class Sorter
     {
-        public static void SelectionSort(int[] numbers)
-        {
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                var min = i;
-
-                for (int j = 0; j < numbers.Length; j++)
-                {
-                    if (numbers[j] < numbers[min]) 
-                        min = j;
-
-                    Swap(numbers, j, min);
-                }
-            }
-        }
-
         private static void Swap(int[] numbers, int @from, int to)
         {
             var aux = numbers[to];

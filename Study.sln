@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionariesTests", "Dictio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\BinaryTree.csproj", "{2EEC1773-EEB8-4DDA-904A-797BEA42E92F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeapTests", "Heap\HeapTests.csproj", "{D6173775-589C-49F2-9256-AB7E4498045F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{2EEC1773-EEB8-4DDA-904A-797BEA42E92F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EEC1773-EEB8-4DDA-904A-797BEA42E92F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EEC1773-EEB8-4DDA-904A-797BEA42E92F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6173775-589C-49F2-9256-AB7E4498045F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6173775-589C-49F2-9256-AB7E4498045F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6173775-589C-49F2-9256-AB7E4498045F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6173775-589C-49F2-9256-AB7E4498045F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

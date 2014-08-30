@@ -13,5 +13,21 @@
         {
             BinaryTree.Traverse(root, n => Console.WriteLine(n.Value));
         }
+
+        public static void Print(int[] numbers)
+        {
+            foreach (var i in numbers)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+        public static void Print<T>(Heap<T> numbers) where T : new()
+        {
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine(numbers.Get(i));
+            }
+        }
     }
 }
