@@ -9,7 +9,7 @@
     {
         private static Sorter<int> GetSorter()
         {
-            return new HeapSorter<int>((i, j) => i < j);
+            return new InsertionSorter<int>((i, j) => i < j);
         }
 
         [TestMethod]
