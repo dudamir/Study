@@ -52,6 +52,13 @@
   <ItemGroup>
     <Compile Include="MatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchSorted.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Structures\Structures.csproj">
+      <Project>{1478E4FF-BA37-431F-94E0-F03EAAA755AA}</Project>
+      <Name>Structures</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
