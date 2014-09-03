@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedLists", "LinkedLists\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.csproj", "{1976F058-9E39-40D6-BD0E-C781C888E6CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix", "Matrix\Matrix.csproj", "{6D954B27-714D-43A4-BABB-C4AA565D92E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTests", "Matrix\MatrixTests.csproj", "{6D954B27-714D-43A4-BABB-C4AA565D92E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Searching", "Searching\Searching.csproj", "{3AECDD4A-A3DD-4D92-829B-12BF52E100CA}"
 EndProject

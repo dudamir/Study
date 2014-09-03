@@ -1,4 +1,4 @@
-﻿namespace Matrix
+﻿namespace MatrixTests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Structures;

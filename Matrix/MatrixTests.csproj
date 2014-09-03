@@ -6,8 +6,8 @@
     <ProjectGuid>{6D954B27-714D-43A4-BABB-C4AA565D92E0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Matrix</RootNamespace>
-    <AssemblyName>Matrix</AssemblyName>
+    <RootNamespace>MatrixTests</RootNamespace>
+    <AssemblyName>MatrixTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,8 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="MatrixTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Questions.cs" />
     <Compile Include="SearchSorted.cs" />
   </ItemGroup>
   <ItemGroup>
