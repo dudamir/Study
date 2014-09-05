@@ -9,7 +9,7 @@
     {
         private static Sorter<int> GetSorter()
         {
-            return new MergeSorter<int>((i, j) => i < j);
+            return new QuickSorter();
         }
 
         [TestMethod]
