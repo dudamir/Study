@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays", "Arrays\Arrays.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedLists", "LinkedLists\LinkedLists.csproj", "{C168B253-6ACF-48D8-8773-4977B3E9DA99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.csproj", "{1976F058-9E39-40D6-BD0E-C781C888E6CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingTests", "Sorting\SortingTests.csproj", "{1976F058-9E39-40D6-BD0E-C781C888E6CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTests", "Matrix\MatrixTests.csproj", "{6D954B27-714D-43A4-BABB-C4AA565D92E0}"
 EndProject

@@ -1,4 +1,4 @@
-﻿namespace Sorting
+﻿namespace SortingTests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Structures;

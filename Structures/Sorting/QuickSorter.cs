@@ -17,7 +17,7 @@
             Sort(unsorted, p + 1, high);
         }
 
-        private static int Partition(int[] unsorted, int low, int high)
+        public static int Partition(int[] unsorted, int low, int high)
         {
             int pivot = high;
             int pValue = unsorted[pivot];
