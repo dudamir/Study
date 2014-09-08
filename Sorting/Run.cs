@@ -9,7 +9,7 @@
     {
         private static Sorter<int> GetSorter()
         {
-            return new QuickSorter();
+            return new InsertionSorter<int>((i, j) => i < j);
         }
 
         [TestMethod]

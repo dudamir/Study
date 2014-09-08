@@ -41,7 +41,7 @@ namespace Structures.Sorting
                     return new[] { a, b };
                 }
                 
-                return new []{b, a};
+                return new [] { b, a };
             }
 
             int mid = (left + right)/2;

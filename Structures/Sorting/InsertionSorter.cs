@@ -13,15 +13,17 @@
 
         public void Sort(T[] unsorted)
         {
-            for (int i = 1; i < unsorted.GetLength(0); i++)
+            for (int j = 1; j < unsorted.GetLength(0); j++)
             {
-                int j = i;
+                T key = unsorted[j];
 
-                while (j > 0 && _compare(unsorted[j], unsorted[j - 1]))
+                int i = j - 1;
+                while (i >= 0 && !_compare(unsorted[i], key))
                 {
-                    Swap(unsorted, j, j - 1);
-                    j--;
+                    unsorted[i + 1] = unsorted[i];
+                    i--;
                 }
+                unsorted[i + 1] = key;
             }
         }
 
