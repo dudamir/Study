@@ -1,12 +1,116 @@
 ﻿namespace Arrays
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class Questions
     {
+
+        /// <summary>
+        /// Given an array size n, find the element that repeats more than n/k times.
+        /// </summary>
+        [TestMethod]
+        public void ElementWithNkRepeats()
+        {
+            int[] a = { 1, 2, 2, 1, 1, 2, 4, 4 };
+            int k = 4;
+
+            int n = a.GetLength(0);
+            int numOfCandidates = n/(n/k + 1);
+
+            var candidates = new Dictionary<int, int>();
+
+            for (int i = 0; i < n; i++)
+            {
+                var cand = a[i];
+
+                if (candidates.ContainsKey(cand))
+                {
+                    candidates[cand]++;
+                    continue;
+                }
+
+                if (candidates.Count < numOfCandidates)
+                {
+                    candidates.Add(cand, 1);
+                }
+                else
+                {
+                    var keys = candidates.Keys.ToList();
+
+                    for (int j = 0; j < keys.Count; j++)
+                    {
+                        candidates[keys[j]]--;
+                    }
+                }
+            }
+
+            var keys1 = candidates.Keys.ToList();
+
+            for (int j = 0; j < keys1.Count; j++)
+            {
+                candidates[keys1[j]] = 0;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                var cand = a[i];
+
+                if (candidates.ContainsKey(cand))
+                    candidates[cand]++;
+            }
+
+            foreach (var candidate in candidates)
+            {
+                if (candidate.Value <= n/k)
+                    candidates.Remove(candidate.Key);
+            }
+
+            Assert.AreEqual(2, candidates.Count());
+            Assert.IsTrue(candidates.ContainsKey(2));
+            Assert.IsTrue(candidates.ContainsKey(1));
+        }
+
+        /// <summary>
+        /// Given an array size n, find the element that repeats more than n/2 times.
+        /// </summary>
+        [TestMethod]
+        public void ElementWith2NRepeats()
+        {
+            int[] a = { 1, 2, 2, 1, 1, 2, 4, 4 };
+
+            int m = Majority(a);
+
+            Assert.AreEqual(2, m);
+        }
+
+        static int Majority(int[] array)
+        {
+            int counter = 0;
+            int current = -1;
+
+            for(int i = 0; i < array.GetLength(0); i++)
+            {
+                if (counter == 0)
+                {
+                    current = array[i];
+                    counter = 1; 
+                }
+                else
+                {
+                    if (array[i] == current)
+                        counter++;
+                    else
+                        counter--;
+                }
+            }
+            
+            return current;
+        }
+
         /// <summary>
         /// Given an array of ranges, please merge the overlapping ones. 
         /// For example, four ranges [5, 13], [27, 39], [8, 19], [31, 37] (in blue in  Figure1) are merged into two ranges, which are [5, 19] and [27, 39] (in green in Figure 1).
@@ -19,7 +123,7 @@
                 new Range {Start = 5, End = 13 },
                 new Range {Start = 27, End = 39 },
                 new Range {Start = 8, End = 19 },
-                new Range {Start = 31, End = 37 },
+                new Range {Start = 31, End = 37 }
             };
 
             Range[] merged = Merge(arrayOfRanges);
