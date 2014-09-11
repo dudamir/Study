@@ -10,6 +10,92 @@
     {
 
         /// <summary>
+        /// Calculate the median of two sorted arrays in O(logn)
+        /// </summary>
+        [TestMethod]
+        public void MedianTwoSortedArrays()
+        {
+            int[] a = { 10, 20, 30, 40 };
+            int[] b = { 10, 20, 30, 40 };
+
+            int median = MergeMedian(a, b);
+
+            Assert.AreEqual(25, median);
+
+            a = new [] { 10, 20, 30, 40, 50 };
+            b = new [] { 10, 20, 30, 40 };
+
+            median = MergeMedian(a, b);
+
+            Assert.AreEqual(30, median);
+
+            a = new[] { 10, 20, 30, 40 };
+            b = new[] { 50, 60, 70, 80 };
+
+            median = MergeMedian(a, b);
+
+            Assert.AreEqual(45, median);
+
+            a = new[] { 10, 20, 30, 40 };
+            b = new[] { 50, 60, 70, 80, 90 };
+
+            median = MergeMedian(a, b);
+
+            Assert.AreEqual(50, median);
+        }
+
+        private int MergeMedian(int[] a, int[] b)
+        {
+            var alen = a.GetLength(0);
+            var blen = b.GetLength(0);
+            
+            int l = alen + blen;
+
+            int h = l/2;
+
+            int m = -1;
+            int m2 = -1;
+
+            int z = 0;
+            int w = 0;
+            
+            for (int i = 0; i <= h; i++)
+            {
+                m = m2;
+                if (z == alen)
+                {
+                    m2 = b[w];
+                    w++;
+                }
+                else if (w == blen)
+                {
+                    m2 = a[z];
+                    z++;
+                }
+                else
+                {
+                    if (a[z] < b[w])
+                    {
+                        m2 = a[z];
+                        z++;
+                    }
+                    else
+                    {
+                        m2 = b[w];
+                        w++;
+                    }
+                }
+            }
+
+            if (h*2 == l)
+            {
+                return (m + m2) / 2;
+            }
+
+            return m2;
+        }
+
+        /// <summary>
         /// Given an array size n, find the element that repeats more than n/k times.
         /// </summary>
         [TestMethod]
