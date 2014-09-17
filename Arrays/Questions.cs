@@ -8,6 +8,76 @@
     [TestClass]
     public class Questions
     {
+        /// <summary>
+        /// Find the max subarray (sum) from a full array
+        /// </summary>
+        [TestMethod]
+        public void FindMaxSubArray()
+        {
+            // var array = new[] { 2, -4, 1, 1, -5, 4 };
+            // var array = new[] { 1, 2, 1, 4, 5, 4 };
+            // var array = new[] { -1, 1, 1, 1, -2, -1 };
+            var array = new[] { 1, -1, -1, -1, -1, -2, -1 };
+
+            Range maxSubArray = MaxSubArray(array, 0, array.GetLength(0) - 1);
+
+            Assert.AreEqual(0, maxSubArray.Start);
+            Assert.AreEqual(0, maxSubArray.End);
+            Assert.AreEqual(1, maxSubArray.Sum);
+        }
+
+        private Range MaxSubArray(int[] array, int left, int right)
+        {
+            if (left == right)
+                return new Range { Start = left, End = right, Sum = array[left] };
+
+            int mid = (left + right)/2;
+
+            var leftRange = MaxSubArray(array, left, mid);
+            var rightRange = MaxSubArray(array, mid + 1, right);
+            var crossRange = MaxCrossSubArray(array, left, right, mid);
+
+            if (leftRange.Sum > rightRange.Sum && leftRange.Sum > crossRange.Sum)
+                return leftRange;
+
+            if (rightRange.Sum > crossRange.Sum)
+                return rightRange;
+
+            return crossRange;
+        }
+
+        private Range MaxCrossSubArray(int[] array, int left, int right, int mid)
+        {
+            int begin = mid;
+            int end = mid;
+            int sum = array[mid];
+            int subsum = sum;
+
+            for (int i = mid -1; i >= left; i--)
+            {
+                subsum += array[i];
+
+                if (subsum > sum)
+                {
+                    sum = subsum;
+                    begin = i;
+                }
+            }
+
+            subsum = sum;
+            for (int i = mid + 1; i <= right; i++)
+            {
+                subsum += array[i];
+
+                if (subsum > sum)
+                {
+                    sum = subsum;
+                    end = i;
+                }
+            }
+
+            return new Range { Start = begin, End = end, Sum = sum };
+        }
 
         /// <summary>
         /// Calculate the median of two sorted arrays in O(logn)
@@ -18,37 +88,42 @@
             int[] a = { 10, 20, 30, 40 };
             int[] b = { 10, 20, 30, 40 };
 
-            int median = MergeMedian(a, b);
+            int median = FindMedian(a, b);
 
             Assert.AreEqual(25, median);
 
             a = new [] { 10, 20, 30, 40, 50 };
             b = new [] { 10, 20, 30, 40 };
 
-            median = MergeMedian(a, b);
+            median = FindMedian(a, b);
 
             Assert.AreEqual(30, median);
 
             a = new[] { 10, 20, 30, 40 };
             b = new[] { 50, 60, 70, 80 };
 
-            median = MergeMedian(a, b);
+            median = FindMedian(a, b);
 
             Assert.AreEqual(45, median);
 
             a = new[] { 10, 20, 30, 40 };
             b = new[] { 50, 60, 70, 80, 90 };
 
-            median = MergeMedian(a, b);
+            median = FindMedian(a, b);
 
             Assert.AreEqual(50, median);
         }
 
-        private int MergeMedian(int[] a, int[] b)
+        private static int FindMedian(int[] a, int[] b)
+        {
+            return MergeMedian(a, b);
+        }
+
+        private static int MergeMedian(int[] a, int[] b)
         {
             var alen = a.GetLength(0);
             var blen = b.GetLength(0);
-            
+
             int l = alen + blen;
 
             int h = l/2;
@@ -58,7 +133,7 @@
 
             int z = 0;
             int w = 0;
-            
+
             for (int i = 0; i <= h; i++)
             {
                 m = m2;
@@ -89,10 +164,22 @@
 
             if (h*2 == l)
             {
-                return (m + m2) / 2;
+                return (m + m2)/2;
             }
 
             return m2;
+        }
+
+        private int Median(int[] a, int left, int right)
+        {
+            int size = (right - left) + 1;
+            int m = (left + right)/2;
+
+
+            if (size%2 == 0)
+                return (a[m] + a[m + 1])/2;
+
+            return a[m];
         }
 
         /// <summary>
@@ -259,5 +346,6 @@
     {
         public int Start;
         public int End;
+        public int Sum;
     }
 }
