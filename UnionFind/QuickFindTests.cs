@@ -3,25 +3,25 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class UnionFindTests
+    public class QuickFindTests
     {
         [TestMethod]
         public void UnionTests()
         {
-            var union = new UnionList(10);
+            var union = new QuickFind(10);
 
             union.Union(5, 8);
 
-            Assert.IsTrue(union.IsConnected(5, 8));
-            Assert.IsFalse(union.IsConnected(5, 9));
+            Assert.IsTrue(union.Connected(5, 8));
+            Assert.IsFalse(union.Connected(5, 9));
         }
     }
 
-    public class UnionList
+    public class QuickFind
     {
         private readonly int[] _list;
 
-        public UnionList(int size)
+        public QuickFind(int size)
         {
             _list = new int[size];
 
@@ -43,7 +43,7 @@
             }
         }
 
-        public bool IsConnected(int a, int b)
+        public bool Connected(int a, int b)
         {
             return _list[a] == _list[b];
         }
