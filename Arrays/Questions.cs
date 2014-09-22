@@ -9,77 +9,6 @@
     public class Questions
     {
         /// <summary>
-        /// Find the max subarray (sum) from a full array
-        /// </summary>
-        [TestMethod]
-        public void FindMaxSubArray()
-        {
-            // var array = new[] { 2, -4, 1, 1, -5, 4 };
-            // var array = new[] { 1, 2, 1, 4, 5, 4 };
-            // var array = new[] { -1, 1, 1, 1, -2, -1 };
-            var array = new[] { 1, -1, -1, -1, -1, -2, -1 };
-
-            Range maxSubArray = MaxSubArray(array, 0, array.GetLength(0) - 1);
-
-            Assert.AreEqual(0, maxSubArray.Start);
-            Assert.AreEqual(0, maxSubArray.End);
-            Assert.AreEqual(1, maxSubArray.Sum);
-        }
-
-        private Range MaxSubArray(int[] array, int left, int right)
-        {
-            if (left == right)
-                return new Range { Start = left, End = right, Sum = array[left] };
-
-            int mid = (left + right)/2;
-
-            var leftRange = MaxSubArray(array, left, mid);
-            var rightRange = MaxSubArray(array, mid + 1, right);
-            var crossRange = MaxCrossSubArray(array, left, right, mid);
-
-            if (leftRange.Sum > rightRange.Sum && leftRange.Sum > crossRange.Sum)
-                return leftRange;
-
-            if (rightRange.Sum > crossRange.Sum)
-                return rightRange;
-
-            return crossRange;
-        }
-
-        private Range MaxCrossSubArray(int[] array, int left, int right, int mid)
-        {
-            int begin = mid;
-            int end = mid;
-            int sum = array[mid];
-            int subsum = sum;
-
-            for (int i = mid -1; i >= left; i--)
-            {
-                subsum += array[i];
-
-                if (subsum > sum)
-                {
-                    sum = subsum;
-                    begin = i;
-                }
-            }
-
-            subsum = sum;
-            for (int i = mid + 1; i <= right; i++)
-            {
-                subsum += array[i];
-
-                if (subsum > sum)
-                {
-                    sum = subsum;
-                    end = i;
-                }
-            }
-
-            return new Range { Start = begin, End = end, Sum = sum };
-        }
-
-        /// <summary>
         /// Calculate the median of two sorted arrays in O(logn)
         /// </summary>
         [TestMethod]
@@ -170,6 +99,7 @@
             return m2;
         }
 
+
         private int Median(int[] a, int left, int right)
         {
             int size = (right - left) + 1;
@@ -180,6 +110,78 @@
                 return (a[m] + a[m + 1])/2;
 
             return a[m];
+        }
+
+        /// <summary>
+        /// Find the max subarray (sum) from a full array
+        /// </summary>
+        [TestMethod]
+        public void FindMaxSubArray()
+        {
+            // var array = new[] { 2, -4, 1, 1, -5, 4 };
+            // var array = new[] { 1, 2, 1, 4, 5, 4 };
+            // var array = new[] { -1, 1, 1, 1, -2, -1 };
+            // var array = new[] { 1, -1, -1, -1, -1, -2, -1 };
+            var array = new[] { -1, -1, -1, -1, -1, -2, -1 };
+
+            Range maxSubArray = MaxSubArray(array, 0, array.GetLength(0) - 1);
+
+            Assert.AreEqual(3, maxSubArray.Start);
+            Assert.AreEqual(3, maxSubArray.End);
+            Assert.AreEqual(-1, maxSubArray.Sum);
+        }
+
+        private Range MaxSubArray(int[] array, int left, int right)
+        {
+            if (left == right)
+                return new Range { Start = left, End = right, Sum = array[left] };
+
+            int mid = (left + right) / 2;
+
+            var leftRange = MaxSubArray(array, left, mid);
+            var rightRange = MaxSubArray(array, mid + 1, right);
+            var crossRange = MaxCrossSubArray(array, left, right, mid);
+
+            if (leftRange.Sum > rightRange.Sum && leftRange.Sum > crossRange.Sum)
+                return leftRange;
+
+            if (rightRange.Sum > crossRange.Sum)
+                return rightRange;
+
+            return crossRange;
+        }
+
+        private Range MaxCrossSubArray(int[] array, int left, int right, int mid)
+        {
+            int begin = mid;
+            int end = mid;
+            int sum = array[mid];
+            int subsum = sum;
+
+            for (int i = mid - 1; i >= left; i--)
+            {
+                subsum += array[i];
+
+                if (subsum > sum)
+                {
+                    sum = subsum;
+                    begin = i;
+                }
+            }
+
+            subsum = sum;
+            for (int i = mid + 1; i <= right; i++)
+            {
+                subsum += array[i];
+
+                if (subsum > sum)
+                {
+                    sum = subsum;
+                    end = i;
+                }
+            }
+
+            return new Range { Start = begin, End = end, Sum = sum };
         }
 
         /// <summary>

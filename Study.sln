@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTree", "BinaryTree\Bi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeapTests", "Heap\HeapTests.csproj", "{D6173775-589C-49F2-9256-AB7E4498045F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnionFind", "UnionFind\UnionFind.csproj", "{5F69A87E-4D54-4949-AB94-C4F52DA3CC3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{D6173775-589C-49F2-9256-AB7E4498045F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6173775-589C-49F2-9256-AB7E4498045F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6173775-589C-49F2-9256-AB7E4498045F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F69A87E-4D54-4949-AB94-C4F52DA3CC3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F69A87E-4D54-4949-AB94-C4F52DA3CC3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F69A87E-4D54-4949-AB94-C4F52DA3CC3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F69A87E-4D54-4949-AB94-C4F52DA3CC3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

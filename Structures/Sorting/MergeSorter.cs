@@ -63,13 +63,9 @@ namespace Structures.Sorting
             int r = 0;
             int z = 0;
 
-            while (z < result.Length)
+            while (z < result.Length && l < lLength && r == rLength)
             {
-                if ((l < lLength 
-                        && r < rLength 
-                        && _compare(left[l], right[r]))
-                    || (r == rLength)
-                        && (l < lLength))
+                if (_compare(left[l], right[r]))
                 {
                     result[z] = left[l];
                     l++;

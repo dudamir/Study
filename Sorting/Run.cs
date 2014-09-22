@@ -9,13 +9,24 @@
     {
         private static Sorter<int> GetSorter()
         {
-            return new InsertionSorter<int>((i, j) => i < j);
+            return new MergeSorter<int>((i, j) => i < j);
         }
 
         [TestMethod]
         public void SortBasic()
         {
             var numbers = new[] { 10000, 2, 6, -3, 1000, 3, 56, 76, 43 };
+
+            var sorter = GetSorter();
+            sorter.Sort(numbers);
+
+            AssertSort(numbers);
+        }
+
+        [TestMethod]
+        public void SortSorted()
+        {
+            var numbers = new[] { 0, 2, 6, 10, 20, 30, 40, 50, 60, 70 };
 
             var sorter = GetSorter();
             sorter.Sort(numbers);
@@ -38,17 +49,6 @@
         public void SortEmpty()
         {
             var numbers = new int[0];
-
-            var sorter = GetSorter();
-            sorter.Sort(numbers);
-
-            AssertSort(numbers);
-        }
-
-        [TestMethod]
-        public void SortSorted()
-        {
-            var numbers = new[] { 1, 2, 6};
 
             var sorter = GetSorter();
             sorter.Sort(numbers);
