@@ -1,15 +1,14 @@
 ﻿namespace UnionFind
 {
-    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
-    public class QuickUnionTests
+    public class WeightedQuickUnionTests
     {
         [TestMethod]
         public void UnionTests()
         {
-            var union = new QuickUnion(10);
+            var union = new WeightedQuickUnion(10);
 
             union.Union(5, 8);
 
@@ -18,24 +17,38 @@
         }
     }
 
-    public class QuickUnion
+    public class WeightedQuickUnion
     {
         private readonly int[] _list;
+        private readonly int[] _height;
 
-        public QuickUnion(int size)
+        public WeightedQuickUnion(int size)
         {
-             _list = new int[size];
+            _list = new int[size];
+            _height = new int[size];
 
             for (int i = 0; i < _list.GetLength(0); i++)
             {
                 _list[i] = i;
+                _height[i] = 1;
             }
         }
 
         public void Union(int a, int b)
         {
             int aroot = Root(a);
-            _list[b] = aroot;
+            int broot = Root(b);
+
+            if (_height[aroot] < _height[broot])
+            {
+                _list[aroot] = broot;
+                _height[broot] += _height[aroot];
+            }
+            else
+            {
+                _list[broot] = aroot;
+                _height[aroot] += _height[broot];
+            }
         }
 
         public bool Connected(int a, int b)
@@ -49,7 +62,7 @@
         private int Root(int i)
         {
             int current = i;
-            
+
             while (_list[current] != current)
             {
                 current = _list[current];
@@ -57,5 +70,6 @@
 
             return current;
         }
+
     }
 }
